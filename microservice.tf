@@ -1,11 +1,13 @@
-# 주의사항! WARNING! 반드시 읽으세요.
+# 주의사항! 반드시 읽으세요.
 
 # 이 예제는 production에서 사용하기 부적합하며 반드시 성능, 보안 등을 검토 후 적절히 수정후에만 적용 가능 합니다.
+# 테스트로 발생되는 AWS관련, 인터넷 등 모든 관련 비용은 사용자 본인이 확인하고 지불해야 하니 사전에 비용관련
 # 이 예제는 애래의 참고자료들을 참고 하였으며, 이 예제를 참고하여 발생하는 법적, 도덕적 책임은 사용자 본인에게 있있음을
 # 인정하는 경우에만 사용하십시오.
 # 참고자료 1. AWS VPC, Subnet: https://www.44bits.io/ko/post/understanding_aws_vpc
 # 참고자료 2. Terraform: https://www.44bits.io/ko/post/terraform_introduction_infrastrucute_as_code
 #                      https://rampart81.github.io/post/vpc_confing_terraform/
+# 테스트 목적인 경우 테스트 후 꼭 terraform destroy를 통해서 서비스들을 지우세요.
 
 # 1. https://console.aws.amazon.com/iam/home?#/users 에서 적절한 iam 계정을 생성
 
@@ -299,7 +301,7 @@ resource "aws_instance" "web_a" {
   # }
 
   depends_on    = [
-    aws_security_group.sg
+    aws_security_group.app_sg
   ]
 }
 
